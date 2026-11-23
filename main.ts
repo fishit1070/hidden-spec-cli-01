@@ -876,7 +876,7 @@ function parseV4aPatch(lines: string[]): NormalizedEdit[] {
         if (l.startsWith("+")) {
           fileLines.push({ text: l.slice(1), rawBlank: false });
           i++;
-        } else if (l === "") {
+        } else if (l === "" || /^[ \t]+$/.test(l)) {
           fileLines.push({ text: "", rawBlank: true });
           i++;
         } else {
